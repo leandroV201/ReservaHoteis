@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-image: url(../images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+}
+h1 {
+    background-color: rgba(184, 103, 11, 0.708);
+    border: 2px solid black;
+    border-top: 0px;
+
+}
+label{
+    background-color: rgba(255, 255, 255, 0.75);
+    color: rgba(0, 0, 0, 0.985);
+}
+select {
+    color:rgba(46, 46, 46, 0.985);
+}
+li {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+footer {
+    background-color: snow;
+}
+h1 {
+    margin-bottom: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    background: #f9f9f9;
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+}
+.btn-voltar {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px 0;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn-voltar:hover {
+    background-color: #0056b3;
+}
+header{
+    font-family: "Oswald";
+    font-size: 2rem;
+    background-color: rgba(184, 103, 11, 0.708);
+    border: 2px black solid;
+    border-bottom: 0px;
+}
+p{
+    background-color: rgba(255, 255, 255, 0.75);
+    font-size: 2rem;
+}

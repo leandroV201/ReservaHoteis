@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Quartos do Hotel</title>
+    <style>
+        .reservado {
+            color: red;
+        }
+        .disponivel {
+            background-color: rgba(255, 255, 255, 0.5);
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <%- include('partials/header') %>
+    <h1>Quartos Disponíveis</h1>
+    <form method="GET" action="/">
+        <label for="tipo">Tipo de Quarto:</label>
+        <select name="tipo" id="tipo">
+            <option value="">Todos</option>
+            <option value="Single">Single</option>
+            <option value="Double">Double</option>
+            <option value="Suite">Suite</option>
+        </select>
+
+        <label for="andar">Andar:</label>
+        <select name="andar" id="andar">
+            <option value="">Todos</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+
+        <label for="precoMax">Preço Máximo:</label>
+        <input type="number" name="precoMax" id="precoMax">
+
+        <label for="mostrarOcupados">Mostrar Quartos Ocupados:</label>
+        <input type="checkbox" name="mostrarOcupados" id="mostrarOcupados" value="true">
+
+        <button type="submit">Filtrar</button>
+    </form>
+
+    <ul>
+        <% if (quartos.length > 0) { %>
+            <% quartos.forEach(quarto => { %>
+                <li class="<%= quarto.disponivel ? 'disponivel' : 'reservado' %>">
+                    Quarto <%= quarto.numero_quarto %> - Tipo: <%= quarto.tipo_quarto %> - Andar: <%= quarto.andar %> - Preço: $<%= quarto.preco %>
+                    <%= quarto.disponivel ? '' : 'Já Reservado' %>
+                    <a href="/quarto/<%= quarto.id %>">Ver Detalhes</a>
+                </li>
+            <% }); %>
+        <% } else { %>
+            <li>Nenhum quarto disponível com os critérios selecionados.</li>
+        <% } %>
+    </ul>
+    <%- include('partials/footer') %>
+</body>
+</html>

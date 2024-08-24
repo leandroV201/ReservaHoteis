@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Detalhes do Quarto</title>
+</head>
+<body>
+    <a href="/" class="btn-voltar">Voltar para a Página Inicial</a>
+    <%- include('partials/header') %>
+
+    
+    
+    <h1>Detalhes do Quarto <%= quarto.numero_quarto %></h1>
+    <p>Tipo: <%= quarto.tipo_quarto %></p>
+    <p>Andar: <%= quarto.andar %></p>
+    <p>Preço: $<%= quarto.preco %></p>
+    <p>Disponível: <%= quarto.disponivel ? 'Sim' : 'Não' %></p>
+
+    <% if (quarto.disponivel) { %>
+        <form method="POST" action="/agendar">
+            <input type="hidden" name="id" value="<%= quarto.id %>">
+            <label for="checkin">Data de Check-in:</label>
+            <input type="date" name="checkin" id="checkin" required>
+
+            <label for="checkout">Data de Check-out:</label>
+            <input type="date" name="checkout" id="checkout" required>
+
+            <button type="submit">Agendar Estadia</button>
+        </form>
+    <% } else { %>
+        <p>Este quarto não está disponível para reserva.</p>
+    <% } %>
+</body>
+</html>
